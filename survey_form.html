@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400&display=swap');
+
+        html, body, div, span, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        abbr, address, cite, code,
+        del, dfn, em, img, ins, kbd, q, samp,
+        small, strong, sub, sup, var,
+        b, i, dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section, summary,
+        time, mark, audio, video {
+            margin:0;
+            padding:0;
+            border:0;
+            outline:0;
+            font-size:100%;
+            vertical-align:baseline;
+            background:transparent;
+        }
+        body {
+            line-height:1;
+        }
+
+        article,aside,details,figcaption,figure,
+        footer,header,hgroup,menu,nav,section {
+            display:block;
+        }
+
+        nav ul {
+            list-style:none;
+        }
+
+        blockquote, q {
+            quotes:none;
+        }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content:'';
+            content:none;
+        }
+
+        a {
+            margin:0;
+            padding:0;
+            font-size:100%;
+            vertical-align:baseline;
+            background:transparent;
+        }
+
+        /* change colours to suit your needs */
+        ins {
+            background-color:#ff9;
+            color:#000;
+            text-decoration:none;
+        }
+
+        /* change colours to suit your needs */
+        mark {
+            background-color:#ff9;
+            color:#000;
+            font-style:italic;
+            font-weight:bold;
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        abbr[title], dfn[title] {
+            border-bottom:1px dotted;
+            cursor:help;
+        }
+
+        table {
+            border-collapse:collapse;
+            border-spacing:0;
+        }
+
+        /* change border colour to suit your needs */
+        hr {
+            display:block;
+            height:1px;
+            border:0;  
+            border-top:1px solid #cccccc;
+            margin:1em 0;
+            padding:0;
+        }
+
+        input, select {
+            vertical-align:middle;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        body,header{
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            align-items: center;
+            font-size: 19px;
+            line-height: 30px;
+            font-weight: 300;
+        }
+        body,header,form,fieldset,.form-center{
+            display: flex;
+            flex-direction: column;
+        }
+        input,
+        select,
+        textarea{
+            padding: 11px 16px;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            background: var(--color-darkblue);
+            background-image: linear-gradient(
+                115deg,
+                rgba(58, 58, 158, 0.8),
+                rgba(136, 136, 206, 0.7)
+                ),
+                url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        header{
+            text-align: center;
+        }
+        #title{
+            margin:50px 20px 10px 20px;
+            font-size: 2rem;
+            font-weight: normal;
+        }
+        #description{
+            font-size: 19px;
+            font-weight: 200;
+            margin:0 10px 0 10px;
+        }
+        #survey-form{
+            width: 720px;
+            background-color:rgba(27, 27, 50, 0.8);
+            border-radius: 4px;
+            align-items: center;
+            margin: 30px 0 0 0;
+        }
+        .form-center{
+            width: 85%;
+            margin:45px 0 40px 0;
+        }
+        .legend-label-button-margin{
+            margin:5px  0 25px 0;
+            border-radius: 6px;
+            border:none;
+        }
+        fieldset{
+            margin-bottom: 30px;
+        }
+        textarea{
+            height: 130px;
+            border-radius: none;
+        }
+        span{
+            font-size: 14px;
+        }
+        #submit{
+            background-color: #37af65;
+            height: 40px;
+            color: inherit;
+            font-size: inherit;
+            font-weight: 200;
+        }
+        .input-font-size{
+            font-size: 16px;
+        }
+        fieldset label{
+            font-size: 20px;
+        }
+        fieldset legend{
+            margin-bottom: 5px;
+        }
+        @media only screen and (max-width: 740px) {
+            #survey-form{
+            width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="title">freeCodeCamp Survey Form</h1>
+        <p id="description"><em> Thank you for taking the time to help us improve the platform</em></p>
+    </header>
+
+    <form action="" method="POST" id="survey-form">
+        <div class="form-center">   
+            <label for="name" id="name-label">Name</label>
+            <input class="legend-label-button-margin input-font-size" type="text" id="name" name="name" placeholder="Enter you name" required>
+            
+            <label for="email" id="email-label">Email</label>
+            <input class="legend-label-button-margin input-font-size" type="text" id="email" name="email" placeholder="Enter your Email" required>
+            
+            <label for="number" id="number-label">Age <span>(optional)</span></label>
+            <input class="legend-label-button-margin input-font-size" type="number" placeholder="Age" id="number" name="age" min="10" max="99">
+
+            <label id="dropdown" for="current_role">Which option best describes your current role?</label>
+            <input class="legend-label-button-margin input-font-size" list="roles" name="current_role" id="current_role" placeholder="Select current role">
+            <datalist id="roles">
+            <option value="Student">
+            <option value="Full Time Job">
+            <option value="Full Time Learner">
+            <option value="Prefer Not To Say">
+            <option value="Other">
+            </datalist>
+
+            <fieldset>
+                <legend>Would you recommend freeCodeCamp to a friend?</legend>
+                <label for='definitely'>
+                <input id='definitely'
+                name='recommend_fcc'
+                type='radio'
+                value='definitely'
+                checked/>
+                Definitely</label>
+                <label for='maybe'>
+                <input id='maybe'
+                name='recommend_fcc'
+                type='radio'
+                value='maybe'/>
+                Maybe</label>
+                <label for='not_sure'>
+                <input id='not_sure'
+                name='recommend_fcc'
+                type='radio'
+                value='not_sure'/>
+                Not sure</label>
+            </fieldset>
+
+            <label id="dropdown" for="favorite_fcc_feature">Which option best describes your current role?</label>
+            <input class="legend-label-button-margin input-font-size" list="fcc_features" name="favorite_fcc_feature" id="favorite_fcc_feature" placeholder="Challenges">
+            <datalist id="fcc_features">
+                <option value="Challenges">
+                <option value="Projects">
+                <option value="Community">
+                <option value="Open Source">
+            </datalist>
+
+            <fieldset >
+                <legend>What would you like to see improved? <span>(Check all that apply)</span></legend>
+                <label  for='improve1'>
+                <input id='improve1'
+                    name='improve1'
+                    type='checkbox'
+                    value='front_end_projects'/>
+                    Front-end Projects</label>
+                <label  for='improve2'>
+                <input id='improve2'
+                    name='improve2'
+                    type='checkbox'
+                    value='back_end_projects'/>
+                    Back-end Projects</label>
+                <label  for='improve3'>
+                <input id='improve3'
+                    name='improve3'
+                    type='checkbox'
+                    value='data_visualization'/>
+                    Data Visualization</label>
+                <label  for='improve4'>
+                <input id='improve4'
+                    name='improve4'
+                    type='checkbox'
+                    value='challenges'/>
+                    Challenges</label>
+                <label  for='improve5'>
+                <input id='improve5'
+                    name='improve5'
+                    type='checkbox'
+                    value='open_source_community'/>
+                    Open Source Community</label>
+                <label  for='improve6'>
+                <input id='improve6'
+                    name='improve6'
+                    type='checkbox'
+                    value='gitter_help_rooms'/>
+                    Gitter help rooms</label>
+                <label  for='improve7'>
+                <input id='improve7'
+                    name='improve7'
+                    type='checkbox'
+                    value='Videos'/>
+                    Videos</label>
+                <label  for='improve8'>
+                <input id='improve8'
+                    name='improve8'
+                    type='checkbox'
+                    value='city_meetups'/>
+                    City Meetups</label>
+                <label  for='improve9'>
+                <input id='improve9'
+                    name='improve9'
+                    type='checkbox'
+                    value='wiki'/>
+                    Wiki</label>
+                <label  for='improve10'>
+                <input id='improve10'
+                    name='improve10'
+                    type='checkbox'
+                    value='forum'/>
+                    Forum</label>
+                <label  for='improve11'>
+                <input id='improve11'
+                    name='improve11'
+                    type='checkbox'
+                    value='additional_courses'/>
+                    Additional Courses</label>
+            </fieldset>
+
+            <label for='suggestions'>Any comments or suggestions?</label>
+            <textarea class="legend-label-button-margin input-font-size" id='suggestions' name='suggestions' placeholder="Enter your comment here..."></textarea>
+
+            <button class="legend-label-button-margin input-font-size" type="submit" id="submit">Submit</button>
+        </div> 
+    </form>
+</body>
+</html>
